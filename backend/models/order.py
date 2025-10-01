@@ -1,7 +1,9 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ConfigDict
 from enum import Enum
 from datetime import datetime
-from typing import List
+from typing import List, Optional
+from .common import PyObjectId
+from bson import ObjectId
 
 class OrderStatus(str, Enum):
     PENDING = "Pending"
@@ -10,12 +12,16 @@ class OrderStatus(str, Enum):
     CANCELLED = "Cancelled"
 
 class OrderItem(BaseModel):
-    medicine_id: str
+    medicine_id: PyObjectId
     quantity: int = Field(..., gt=0)
 
 class Order(BaseModel):
-    pharmacist_id: str
+    pharmacist_id: PyObjectId
     items: List[OrderItem]
     status: OrderStatus = OrderStatus.PENDING
     order_date: datetime = Field(default_factory=datetime.utcnow)
     last_updated: datetime = Field(default_factory=datetime.utcnow)
+    model_config = ConfigDict(populate_by_name=True, arbitrary_types_allowed=True, json_encoders={ObjectId: str})
+
+class OrderInDB(Order):
+    id: Optional[PyObjectId] = Field(alias="_id", default=None)

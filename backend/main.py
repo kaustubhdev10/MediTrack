@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from contextlib import asynccontextmanager
 from database import connect_to_mongo, close_mongo_connection
-from routers import medicines
+from routers import medicines, orders, auth
 
 
 @asynccontextmanager
@@ -26,6 +26,8 @@ app = FastAPI(
 
 # Include the medicines router
 app.include_router(medicines.router)
+app.include_router(orders.router)
+app.include_router(auth.router)
 
 @app.get("/", tags=["Root"])
 async def read_root():
