@@ -25,7 +25,60 @@ It manages medicines with role-based access, tracks stock/orders, raises alerts 
 
 ---
 
-## 🗺️ Project Roadmap
+## � Getting Started
+
+Follow these instructions to get the backend server up and running on your local machine for development and testing.
+
+### Prerequisites
+
+Make sure you have the following installed on your system:
+-   [Python 3.8+](https://www.python.org/downloads/)
+-   [Git](https://git-scm.com/downloads/)
+-   A [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/register) account for the database.
+
+### Installation & Setup
+
+1.  **Clone the repository:**
+    ```sh
+    git clone https://github.com/your-username/MediTrack.git
+    cd MediTrack/backend
+    ```
+
+2.  **Create and activate a virtual environment:**
+    ```sh
+    # On macOS/Linux
+    python3 -m venv venv
+    source venv/bin/activate
+
+    # On Windows
+    python -m venv venv
+    .\venv\Scripts\activate
+    ```
+
+3.  **Install dependencies:**
+    ```sh
+    pip install -r requirements.txt
+    ```
+
+4.  **Configure Environment Variables:**
+    -   In the `backend` directory, create a new file named `.env`.
+    -   Add your MongoDB Atlas connection string to this file. You can get this from your Atlas dashboard.
+        ```env
+        MONGO_URI="mongodb+srv://<username>:<password>@yourcluster.mongodb.net/..."
+        ```
+
+5.  **Run the Backend Server:**
+    ```sh
+    uvicorn main:app --reload
+    ```
+
+6.  **Verify It's Working:**
+    -   Open your web browser and navigate to `http://127.0.0.1:8000/docs`.
+    -   You should see the FastAPI interactive documentation page. This confirms that the backend server is running correctly. You can use this interface to test the API endpoints.
+
+---
+
+## �🗺️ Project Roadmap
 This project is broken down into four manageable phases, guiding development from the ground up.
 
 ### Phase 1: Foundation & Backend Core
