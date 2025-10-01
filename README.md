@@ -87,7 +87,7 @@ This phase focuses on setting up the project environment and building the backen
 -   [x] **Database Setup**: Set up a MongoDB Atlas cluster and get the connection string.
 -   [x] **Backend API**: Initialize a FastAPI project.
 -   [x] **Database Schema**: Define models for `users`, `medicines`, and `orders`.
--   [ ] **User Authentication**: Implement user registration, login (with JWT), and role-based access control.
+-   [x] **User Authentication**: Implement user registration, login (with JWT), and role-based access control.
 
 ### Phase 2: Core Business Logic
 Build the main features of the application on the backend.
