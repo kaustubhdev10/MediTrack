@@ -34,13 +34,12 @@ Follow these instructions to get the backend server up and running on your local
 Make sure you have the following installed on your system:
 -   [Python 3.8+](https://www.python.org/downloads/)
 -   [Git](https://git-scm.com/downloads/)
--   A [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/register) account for the database.
 
 ### Installation & Setup
 
 1.  **Clone the repository:**
     ```sh
-    git clone https://github.com/your-username/MediTrack.git
+    git clone https://github.com/kaustubhdev10/MediTrack
     cd MediTrack/backend
     ```
 
