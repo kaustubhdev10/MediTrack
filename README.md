@@ -31,8 +31,8 @@ This project is broken down into four manageable phases, guiding development fro
 ### Phase 1: Foundation & Backend Core
 This phase focuses on setting up the project environment and building the backend API and database.
 -   [ ] **Project Setup**: Initialize Git, create project structure (`backend`, `frontend`, `analytics`).
--   [ ] **Database Setup**: Set up a MongoDB Atlas cluster and get the connection string.
--   [ ] **Backend API**: Initialize a FastAPI project.
+-   [x] **Database Setup**: Set up a MongoDB Atlas cluster and get the connection string.
+-   [x] **Backend API**: Initialize a FastAPI project.
 -   [ ] **Database Schema**: Define models for `users`, `medicines`, and `orders`.
 -   [ ] **User Authentication**: Implement user registration, login (with JWT), and role-based access control.
 
