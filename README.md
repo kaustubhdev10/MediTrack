@@ -91,7 +91,7 @@ This phase focuses on setting up the project environment and building the backen
 ### Phase 2: Core Business Logic
 Build the main features of the application on the backend.
 -   [x] **Inventory Management**: Create CRUD endpoints for `Admin` to manage medicines.
--   [ ] **Order Management**: Create endpoints for `Pharmacists` to place orders and for `Suppliers` to update order status.
+-   [] **Order Management**: Create endpoints for `Pharmacists` to place orders and for `Suppliers` to update order status.
 
 ### Phase 3: Frontend Development with React
 Build the user interface to interact with the backend.
