@@ -5,7 +5,9 @@ from datetime import datetime
 
 from database import db
 from models.order import Order, OrderInDB, OrderItem, OrderStatus
+from models.user import UserInDB
 from models.common import PyObjectId
+from .auth import get_current_user
 
 router = APIRouter(
     prefix="/orders",
@@ -18,15 +20,23 @@ def get_database() -> AsyncIOMotorDatabase:
 
 @router.post("/", response_model=OrderInDB, status_code=status.HTTP_201_CREATED)
 async def create_order(
-    order_data: Order = Body(...),
-    database: AsyncIOMotorDatabase = Depends(get_database)
+    items: List[OrderItem] = Body(...),
+    database: AsyncIOMotorDatabase = Depends(get_database),
+    current_user: UserInDB = Depends(get_current_user)
 ):
     """
     Create a new order.
     This transactionally checks for stock and decrements it before creating the order.
+    The order will be associated with the currently authenticated user.
     """
+    order_data = Order(
+        pharmacist_id=current_user.id,
+        pharmacist_name=current_user.username,
+        items=items,
+    )
+
     async with await db.client.start_session() as session:
-        async with session.in_transaction():
+        async with session.start_transaction():
             for item in order_data.items:
                 medicine = await database.medicines.find_one(
                     {"_id": item.medicine_id},

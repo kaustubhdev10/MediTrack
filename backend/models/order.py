@@ -17,6 +17,7 @@ class OrderItem(BaseModel):
 
 class Order(BaseModel):
     pharmacist_id: PyObjectId
+    pharmacist_name: str
     items: List[OrderItem]
     status: OrderStatus = OrderStatus.PENDING
     order_date: datetime = Field(default_factory=datetime.utcnow)
