@@ -9,7 +9,7 @@ It manages medicines with role-based access, tracks stock/orders, raises alerts 
 ## 🚀 Features
 - Role-based login (Admin, Supplier, Pharmacist)  
 - Inventory management (add, update, delete, track medicines)  
-- Order placement & tracking  
+- Order placement & tracking.
 - Alerts for low stock and expiring medicines  
 - Streamlit dashboards with analytics & ML predictions  
 - Cloud database with MongoDB Atlas  
